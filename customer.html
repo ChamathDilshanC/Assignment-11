@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { padding-top: 60px; }
+        .card { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" style="font-weight: bold">
+            <img src="Images/Logo.png" alt="Logo" style="width: 30px; aspect-ratio: 1; margin-right: 10px">Chama Systems
+        </a>
+        <button id="logoutButton" onclick="window.location.href='index.html'" class="btn btn-primary">
+            <i class="fas fa-sign-out-alt me-2"></i>Log Out
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                    <i class="fas fa-bars me-2"></i>POS Menu
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">
+                            <i class="fas fa-home me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-users me-2"></i>Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="items.html">
+                            <i class="fas fa-box me-2"></i>Items
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="placeorder.html">
+                            <i class="fas fa-shopping-cart me-2"></i>Place Order
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orderdetails.html">
+                            <i class="fas fa-file-invoice me-2"></i>Order Details
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-sign-out-alt me-2"></i>Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Customer Management</h2>
+
+    <!-- Customer Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Customer Form</h5>
+            <form id="frm-customer">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="txt-fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="txt-fname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txt-lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="txt-lname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txt-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="txt-email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txt-mobile" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="txt-mobile" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="txt-address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="txt-address" required>
+                    </div>
+                </div>
+                <div class="mt-3 text-end">
+                    <button type="button" class="btn btn-primary" id="btn-save-customer">Add Customer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Customer List -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Customer List</h5>
+            <div class="table-responsive mt-3">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbl-customers"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
